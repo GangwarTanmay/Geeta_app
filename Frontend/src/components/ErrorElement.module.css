@@ -1,0 +1,52 @@
+.outer {
+  min-height: 70vh;
+  height: max-content;
+  width: 80%;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.heading1 {
+  font-size: 10rem;
+  font-weight: 800;
+  background-image: linear-gradient(to top, #c71d6f 0%, #d09693 100%);
+  color: transparent;
+  background-clip: text;
+}
+
+.description {
+  width: 50%;
+  text-align: center;
+}
+
+/* Small Mobile Phones (Portrait) */
+@media (max-width: 480px) {
+  .heading1 {
+    font-size: 5rem;
+  }
+
+  .outer {
+    min-height: 75vh;
+    width: 90%;
+  }
+
+  .description {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Tablet (Landscape) */
+@media (min-width: 768px) {
+  .outer {
+    min-height: 80vh;
+  }
+
+  .description {
+    width: 70%;
+    text-align: center;
+  }
+}

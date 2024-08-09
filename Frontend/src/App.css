@@ -1,0 +1,76 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.outer {
+  height: 100vh;
+  padding: 0px !important;
+  min-height: 70vh;
+}
+
+.caraouselDiv {
+  height: 30rem;
+  border-radius: 1.8rem;
+}
+
+.caraouselDiv img {
+  height: 30rem;
+  border-radius: 1.8rem;
+  object-fit: cover;
+}
+
+.bannerDiv {
+  height: 10rem;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bannerHeading {
+  color: orangered;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.headingLine {
+  height: 2px;
+  width: 100%;
+  margin-left: 2rem;
+  background-color: orangered;
+}
+
+/* Tablet (Landscape) */
+@media (max-width: 768px) {
+}
+
+/* Large Mobile Phones (Landscape and Portrait) */
+@media (max-width: 600px) {
+}
+
+/* Small Mobile Phones (Portrait) */
+@media (max-width: 480px) {
+  .bannerHeading {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .caraouselDiv img {
+    height: 20rem;
+    border-radius: 1.8rem;
+    object-fit: cover;
+    display: block;
+  }
+
+  .caraouselDiv {
+    height: 20rem;
+  }
+}

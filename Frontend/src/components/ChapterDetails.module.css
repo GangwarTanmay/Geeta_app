@@ -1,0 +1,132 @@
+.outer {
+  padding: 0px !important;
+  min-height: 70vh;
+  height: max-content;
+  width: 70%;
+}
+
+.innerDiv {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 3rem 0px;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("../images/bgr.png");
+  background-repeat: no-repeat;
+  background-size: 40rem 30rem;
+  background-position: center;
+}
+
+.h5 {
+  color: orangered;
+  text-align: center;
+}
+
+.h2 {
+  margin-top: 2.5rem;
+  width: 70%;
+  font-size: 2.7rem;
+  color: black;
+  text-align: center;
+  font-weight: 800;
+}
+
+.h2_Hindi {
+  font-size: 2rem;
+  color: black;
+  text-align: center;
+  font-weight: 600;
+}
+
+.description {
+  width: 70%;
+  margin-top: 2.5rem;
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+
+.verseCard {
+  width: 100%;
+  min-height: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.verseCard:hover {
+  background-color: #fbf6e2;
+}
+
+.customDiv {
+  height: 1px;
+  background-color: orangered;
+}
+
+/* Small Mobile Phones (Portrait) */
+@media (max-width: 480px) {
+  .outer {
+    width: 90%;
+  }
+
+  .innerDiv {
+    padding: 0px;
+    background-size: 20rem 10rem;
+    background-position: top;
+  }
+
+  .h2 {
+    margin-top: 2.5rem;
+    width: 90%;
+    font-size: 2rem;
+  }
+
+  .h2_Hindi {
+    font-size: 1.7rem;
+  }
+
+  .description {
+    width: 90%;
+    margin-top: 2.5rem;
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+
+  .customHr {
+    height: 1px;
+    width: 100%;
+    background-color: orangered;
+  }
+
+  .verseCard:nth-child(2n) {
+    background-color: #fbf6e2;
+  }
+
+  .verseCol {
+    padding: 10px;
+  }
+}
+
+/* Tablet (Landscape) */
+@media (min-width: 768px) {
+  .outer {
+    min-height: 90vh;
+    width: 80%;
+  }
+
+  .description {
+    width: 90%;
+    margin-top: 2.5rem;
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+
+  .verseCard:nth-child(2n) {
+    background-color: #fbf6e2;
+  }
+}

@@ -1,0 +1,39 @@
+.outer {
+  height: 100%;
+  min-height: max-content;
+  border-radius: 0.6rem;
+  padding: 1rem 1.3rem;
+  cursor: pointer;
+}
+
+.outer:hover {
+  background-color: #fbf6e2;
+  outline-offset: 0px;
+  outline-color: #ff8343;
+  outline-style: solid;
+  outline-width: 2px;
+}
+
+.chapterNumber {
+  color: orangered;
+}
+
+.chapterName {
+  font-weight: 700;
+  line-height: 2rem;
+}
+
+.description {
+  color: grey;
+  overflow: hidden;
+  text-overflow: ellipsis !important;
+  height: 3rem;
+}
+
+.versesLogo {
+  color: orangered;
+}
+
+.verses {
+  font-weight: 400;
+}

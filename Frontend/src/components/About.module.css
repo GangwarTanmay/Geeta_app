@@ -1,0 +1,32 @@
+.outer {
+  min-height: 70vh;
+  height: max-content;
+  width: 70%;
+}
+
+.heading {
+  margin-top: 2.5rem;
+  font-size: 2.7rem;
+  color: black;
+  font-weight: 700;
+}
+
+.customDiv {
+  height: 1px;
+  background-color: orangered;
+}
+
+/* Small Mobile Phones (Portrait) */
+@media (max-width: 480px) {
+  .heading {
+    margin-top: 2rem;
+    font-size: 1.7rem;
+    color: black;
+    font-weight: 700;
+  }
+
+  .image {
+    height: 10rem;
+    width: 20rem;
+  }
+}

@@ -1,0 +1,38 @@
+.outer {
+  height: 70vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner {
+  height: 3rem;
+  width: 3rem;
+  border: 4px solid black;
+  border-top: 4px solid transparent;
+  border-radius: 50%;
+  animation: 1s rotate linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .outer {
+    height: 75vh;
+  }
+}
+
+@media (min-width: 768px) {
+  .outer {
+    height: 80vh;
+  }
+}

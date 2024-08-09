@@ -1,0 +1,80 @@
+.outer {
+  padding: 0px !important;
+  min-height: 70vh;
+}
+
+.innerDiv {
+  width: 75%;
+  margin: 3rem auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("../images/bgr.png");
+  background-repeat: no-repeat;
+  background-size: 40rem 30rem;
+  background-position: center;
+}
+
+.innerDiv h2 {
+  font-weight: 800;
+  font-size: 2.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.innerDiv h3 {
+  width: 50%;
+  line-height: 3rem;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 2rem;
+  color: orangered;
+}
+
+.shlok {
+  margin-top: 2rem;
+  width: 50%;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.text {
+  margin-top: 2rem;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.customHr {
+  margin: 4rem 0px;
+}
+
+/* Small Mobile Phones (Portrait) */
+@media (max-width: 480px) {
+  .innerDiv {
+    padding: 0px;
+    background-size: 20rem 10rem;
+    background-position: top;
+  }
+
+  .innerDiv h2 {
+    margin-top: 2.5rem;
+    width: 90%;
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .innerDiv h3 {
+    width: 100%;
+    font-size: 1.7rem;
+  }
+
+  .shlok {
+    width: 100%;
+    text-align: center;
+    font-size: 1.3rem;
+  }
+}
