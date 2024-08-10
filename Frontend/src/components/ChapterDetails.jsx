@@ -18,9 +18,7 @@ function ChapterDetails() {
       setIsLoading(true);
       try {
         let chapter = await axios.get(`${baseURL}/chapter/${id}`);
-        let verses = await axios.get(
-          `http://localhost:8080/chapter/${id}/verses`
-        );
+        let verses = await axios.get(`${baseURL}/chapter/${id}/verses`);
         setChapterDetails(chapter.data);
         setVerses(verses.data);
         setIsLoading(false);
