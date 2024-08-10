@@ -1,21 +1,42 @@
-import { useLoaderData } from "react-router-dom";
 import styles from "./ChapterDetails.module.css";
 import axios from "axios";
-import { Suspense, useContext, useEffect } from "react";
+import { Suspense, useContext, useEffect, useState } from "react";
 import Verses from "./Verses";
 import { BookContext } from "../store/BookStore";
 import Loader from "./Loader";
+import { useParams } from "react-router-dom";
+let baseURL = import.meta.env.VITE_BASE_URL;
 
 function ChapterDetails() {
-  let data = useLoaderData();
-
   let { chapterDetails, setVerses, setChapterDetails } =
     useContext(BookContext);
+  let { id } = useParams();
+  let [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setChapterDetails(data.chapterData);
-    setVerses(data.versesData);
+    let getChapterDetails = async (id) => {
+      setIsLoading(true);
+      try {
+        let chapter = await axios.get(`${baseURL}/chapter/${id}`);
+        let verses = await axios.get(
+          `http://localhost:8080/chapter/${id}/verses`
+        );
+        setChapterDetails(chapter.data);
+        setVerses(verses.data);
+        setIsLoading(false);
+      } catch (err) {
+        throw new Response("Error occured", {
+          status: 500,
+          statusText:
+            "Some internal error occured! Please try again after some time.",
+        });
+      }
+    };
+
+    getChapterDetails(id);
   }, []);
+
+  if (isLoading) return <Loader />;
 
   return (
     <Suspense fallback={<Loader></Loader>}>
@@ -40,18 +61,3 @@ function ChapterDetails() {
   );
 }
 export default ChapterDetails;
-
-export let getChapterDetails = async ({ params }) => {
-  try {
-    let { id } = params;
-    let chapter = await axios.get(`http://localhost:8080/chapter/${id}`);
-    let verses = await axios.get(`http://localhost:8080/chapter/${id}/verses`);
-    return { chapterData: chapter.data, versesData: verses.data };
-  } catch (err) {
-    throw new Response("Error occured", {
-      status: 500,
-      statusText:
-        "Some internal error occured! Please try again after some time.",
-    });
-  }
-};

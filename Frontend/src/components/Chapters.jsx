@@ -1,48 +1,51 @@
-import { Suspense, useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import ChapterCard from "./ChapterCard";
-import { useLoaderData } from "react-router-dom";
 import { BookContext } from "../store/BookStore";
 import Loader from "./Loader";
+let baseURL = import.meta.env.VITE_BASE_URL;
 
 function Chapters() {
   let { chapters, setChapters } = useContext(BookContext);
-  let chaptersData = useLoaderData();
+  let [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setChapters(chaptersData);
+    const fetchChapters = async () => {
+      try {
+        setIsLoading(true);
+        let result = await axios.get(baseURL);
+        setChapters(result.data);
+        setIsLoading(false);
+      } catch (err) {
+        throw new Response("Error occured", {
+          status: 500,
+          statusText:
+            "Some internal error occured! Please try again after some time.",
+        });
+      }
+    };
+    fetchChapters();
   }, []);
 
-  return (
-    <Suspense fallback={<Loader></Loader>}>
-      <div className="container">
-        <div className="d-flex align-items-center mt-5">
-          <h3 className="chapters-heading">Chapters</h3>
-          <div className="headingLine"></div>
-        </div>
+  if (isLoading) {
+    return <Loader />;
+  }
 
-        <div className="row mt-5">
-          {chapters.length &&
-            chapters.map((chapter) => (
-              <ChapterCard key={chapter.id} chapter={chapter}></ChapterCard>
-            ))}
-        </div>
+  return (
+    <div className="container">
+      <div className="d-flex align-items-center mt-5">
+        <h3 className="chapters-heading">Chapters</h3>
+        <div className="headingLine"></div>
       </div>
-    </Suspense>
+
+      <div className="row mt-5">
+        {chapters.length &&
+          chapters.map((chapter) => (
+            <ChapterCard key={chapter.id} chapter={chapter}></ChapterCard>
+          ))}
+      </div>
+    </div>
   );
 }
 
 export default Chapters;
-
-export const fetchChapters = async () => {
-  try {
-    let result = await axios.get("http://localhost:8080/");
-    return result.data;
-  } catch (err) {
-    throw new Response("Error occured", {
-      status: 500,
-      statusText:
-        "Some internal error occured! Please try again after some time.",
-    });
-  }
-};
