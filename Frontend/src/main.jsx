@@ -5,14 +5,11 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Chapters, { fetchChapters } from "./components/Chapters.jsx";
+import Chapters from "./components/Chapters.jsx";
 import Homepage from "./components/Homepage.jsx";
 import Banner from "./components/Banner.jsx";
-import ChapterDetails, {
-  getChapterDetails,
-} from "./components/ChapterDetails.jsx";
-import VerseDetails, { getVerseDetails } from "./components/VerseDetails.jsx";
-import Loader from "./components/Loader.jsx";
+import ChapterDetails from "./components/ChapterDetails.jsx";
+import VerseDetails from "./components/VerseDetails.jsx";
 import About from "./components/About.jsx";
 import ErrorElement from "./components/ErrorElement.jsx";
 
@@ -31,7 +28,7 @@ const router = createBrowserRouter([
             <Chapters></Chapters>
           </>
         ),
-        loader: () => fetchChapters(),
+        // loader: () => fetchChapters(),
       },
       {
         path: "/about",
@@ -40,14 +37,12 @@ const router = createBrowserRouter([
       {
         path: "/chapter/:id",
         errorElement: <ErrorElement />,
-        element: <ChapterDetails></ChapterDetails>,
-        loader: (params) => getChapterDetails(params),
+        element: <ChapterDetails />,
       },
       {
         path: "/chapter/:chapter_number/verse/:verse_number",
         errorElement: <ErrorElement />,
         element: <VerseDetails></VerseDetails>,
-        loader: (params) => getVerseDetails(params),
       },
       {
         path: "*",
@@ -67,9 +62,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider
-      router={router}
-      fallbackElement={<Loader></Loader>}
-    ></RouterProvider>
+    <RouterProvider router={router}></RouterProvider>
   </React.StrictMode>
 );
