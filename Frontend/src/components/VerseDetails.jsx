@@ -5,7 +5,7 @@ import { filterData } from "../utility/filterData";
 import { useParams } from "react-router-dom";
 import { BookContext } from "../store/BookStore";
 import Loader from "./Loader";
-let baseURL = import.meta.env.VITE_BASE_URL;
+let baseURL = "https://geeta-app-backend.onrender.com";
 
 function VerseDetails() {
   let { descriptionData, setDescriptionData, verseData, setVerseData } =

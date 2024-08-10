@@ -3,7 +3,7 @@ import axios from "axios";
 import ChapterCard from "./ChapterCard";
 import { BookContext } from "../store/BookStore";
 import Loader from "./Loader";
-let baseURL = import.meta.env.VITE_BASE_URL;
+let baseURL = "https://geeta-app-backend.onrender.com";
 
 function Chapters() {
   let { chapters, setChapters } = useContext(BookContext);

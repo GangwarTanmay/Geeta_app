@@ -5,7 +5,7 @@ import Verses from "./Verses";
 import { BookContext } from "../store/BookStore";
 import Loader from "./Loader";
 import { useParams } from "react-router-dom";
-let baseURL = import.meta.env.VITE_BASE_URL;
+let baseURL = "https://geeta-app-backend.onrender.com";
 
 function ChapterDetails() {
   let { chapterDetails, setVerses, setChapterDetails } =
