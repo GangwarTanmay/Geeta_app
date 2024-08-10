@@ -53,7 +53,7 @@
 }
 
 /* Small Mobile Phones (Portrait) */
-@media (max-width: 480px) {
+@media (min-width: 350px) and (max-width: 767px) {
   .innerDiv {
     padding: 0px;
     background-size: 20rem 10rem;
@@ -76,5 +76,13 @@
     width: 100%;
     text-align: center;
     font-size: 1.3rem;
+  }
+
+  .innerDiv {
+    width: 75%;
+    margin: 3rem auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
 }

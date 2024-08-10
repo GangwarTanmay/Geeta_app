@@ -69,15 +69,14 @@
 }
 
 /* Small Mobile Phones (Portrait) */
-@media (max-width: 480px) {
+@media (min-width: 350px) and (max-width: 767px) {
   .outer {
     width: 90%;
   }
 
   .innerDiv {
     padding: 0px;
-    background-size: 20rem 10rem;
-    background-position: top;
+    background-image: none;
   }
 
   .h2 {
@@ -113,7 +112,7 @@
 }
 
 /* Tablet (Landscape) */
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1023px) {
   .outer {
     min-height: 90vh;
     width: 80%;
@@ -128,5 +127,10 @@
 
   .verseCard:nth-child(2n) {
     background-color: #fbf6e2;
+  }
+
+  .innerDiv {
+    padding: 0px;
+    background-image: none;
   }
 }

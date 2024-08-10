@@ -23,7 +23,7 @@
 }
 
 /* Small Mobile Phones (Portrait) */
-@media (max-width: 480px) {
+@media (min-width: 350px) and (max-width: 767px) {
   .heading1 {
     font-size: 5rem;
   }
@@ -40,7 +40,7 @@
 }
 
 /* Tablet (Landscape) */
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1023px) {
   .outer {
     min-height: 80vh;
   }
