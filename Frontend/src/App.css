@@ -48,16 +48,8 @@ body {
   background-color: orangered;
 }
 
-/* Tablet (Landscape) */
-@media (max-width: 768px) {
-}
-
-/* Large Mobile Phones (Landscape and Portrait) */
-@media (max-width: 600px) {
-}
-
 /* Small Mobile Phones (Portrait) */
-@media (max-width: 480px) {
+@media (min-width: 350px) and (max-width: 767px) {
   .bannerHeading {
     text-align: center;
     font-size: 1.2rem;
