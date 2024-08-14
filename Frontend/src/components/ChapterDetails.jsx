@@ -40,7 +40,7 @@ function ChapterDetails() {
     };
 
     getChapterDetails(id);
-  }, []);
+  }, [id]);
 
   if (isLoading) return <Loader />;
 
