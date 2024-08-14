@@ -1,19 +1,21 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import axios from "axios";
 import ChapterCard from "./ChapterCard";
 import { BookContext } from "../store/BookStore";
 import Loader from "./Loader";
-let baseURL = "https://geeta-app-backend.onrender.com";
 
 function Chapters() {
-  let { chapters, setChapters } = useContext(BookContext);
-  let [isLoading, setIsLoading] = useState(false);
+  let { chapters, setChapters, isLoading, setIsLoading, baseURL, options } =
+    useContext(BookContext);
 
   useEffect(() => {
     const fetchChapters = async () => {
       try {
         setIsLoading(true);
-        let result = await axios.get(baseURL);
+        let result = await axios.get(
+          `${baseURL}/chapters/?skip=0&limit=18`,
+          options
+        );
         setChapters(result.data);
         setIsLoading(false);
       } catch (err) {

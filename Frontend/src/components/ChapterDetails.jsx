@@ -1,24 +1,32 @@
 import styles from "./ChapterDetails.module.css";
 import axios from "axios";
-import { Suspense, useContext, useEffect, useState } from "react";
+import { Suspense, useContext, useEffect } from "react";
 import Verses from "./Verses";
 import { BookContext } from "../store/BookStore";
 import Loader from "./Loader";
 import { useParams } from "react-router-dom";
-let baseURL = "https://geeta-app-backend.onrender.com";
 
 function ChapterDetails() {
-  let { chapterDetails, setVerses, setChapterDetails } =
-    useContext(BookContext);
+  let {
+    chapterDetails,
+    setVerses,
+    setChapterDetails,
+    isLoading,
+    setIsLoading,
+    baseURL,
+    options,
+  } = useContext(BookContext);
   let { id } = useParams();
-  let [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     let getChapterDetails = async (id) => {
       setIsLoading(true);
       try {
-        let chapter = await axios.get(`${baseURL}/chapter/${id}`);
-        let verses = await axios.get(`${baseURL}/chapter/${id}/verses`);
+        let chapter = await axios.get(`${baseURL}/chapters/${id}/`, options);
+        let verses = await axios.get(
+          `${baseURL}/chapters/${id}/verses/`,
+          options
+        );
         setChapterDetails(chapter.data);
         setVerses(verses.data);
         setIsLoading(false);

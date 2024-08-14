@@ -1,25 +1,32 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import styles from "./VerseDetails.module.css";
 import axios from "axios";
 import { filterData } from "../utility/filterData";
 import { useParams } from "react-router-dom";
 import { BookContext } from "../store/BookStore";
 import Loader from "./Loader";
-let baseURL = "https://geeta-app-backend.onrender.com";
 
 function VerseDetails() {
-  let { descriptionData, setDescriptionData, verseData, setVerseData } =
-    useContext(BookContext);
+  let {
+    descriptionData,
+    setDescriptionData,
+    verseData,
+    setVerseData,
+    isLoading,
+    setIsLoading,
+    options,
+    baseURL,
+  } = useContext(BookContext);
 
   let params = useParams();
-  let [isLoading, setIsLoading] = useState(false);
 
   let getVerseDetails = async (params) => {
     let { chapter_number, verse_number } = params;
     try {
       setIsLoading(true);
       let result = await axios.get(
-        `${baseURL}/chapter/${chapter_number}/verse/${verse_number}`
+        `${baseURL}/chapters/${chapter_number}/verses/${verse_number}/`,
+        options
       );
       let description = await filterData(result.data.translations);
       setDescriptionData({
