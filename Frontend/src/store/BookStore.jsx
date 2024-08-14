@@ -12,6 +12,10 @@ export let BookContext = createContext({
   setVerses: () => {},
   setDescriptionData: () => {},
   setVerseData: () => {},
+  options: {},
+  baseURL: "",
+  isLoading: false,
+  setIsLoading: () => {},
 });
 
 function BookStore({ children }) {
@@ -20,6 +24,17 @@ function BookStore({ children }) {
   let [verses, setVerses] = useState([]);
   let [descriptionData, setDescriptionData] = useState("");
   let [verseData, setVerseData] = useState([]);
+  let [isLoading, setIsLoading] = useState(false);
+
+  const baseURL = "https://bhagavad-gita3.p.rapidapi.com/v2";
+
+  const options = {
+    method: "GET",
+    headers: {
+      "x-rapidapi-key": "2aeeaf4919msh914b74f103d762ap1712acjsna11b8e064fbe",
+      "x-rapidapi-host": "bhagavad-gita3.p.rapidapi.com",
+    },
+  };
 
   return (
     <BookContext.Provider
@@ -34,6 +49,10 @@ function BookStore({ children }) {
         setDescriptionData,
         verseData,
         setVerseData,
+        options,
+        baseURL,
+        isLoading,
+        setIsLoading,
       }}
     >
       {children}
